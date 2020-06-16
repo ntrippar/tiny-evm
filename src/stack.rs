@@ -1,3 +1,6 @@
+#[cfg(feature = "alloc_counter")]
+use alloc_counter::{count_alloc};
+
 use crate::execution_error::ExecutionError;
 use ethereum_types::U256;
 
@@ -14,7 +17,7 @@ impl Stack {
     pub fn new() -> Stack {
         Stack { stack: Vec::new() }
     }
-
+    #[cfg_attr(feature = "alloc_counter", count_alloc)]
     pub fn with_capacity(capacity: usize) -> Stack {
         Stack {
             stack: Vec::with_capacity(capacity),
