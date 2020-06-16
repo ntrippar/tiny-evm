@@ -1,17 +1,11 @@
-mod bytecode;
-mod context;
-mod evm;
-mod execution_error;
-mod i256;
-mod memory;
-mod opcode_handlers;
-mod opcodes;
-mod stack;
-mod vm;
 
-use crate::context::{BlockContext, CallContext};
-use bytecode::Bytecode;
-use evm::run;
+use tiny_evm::{
+    Bytecode,
+    BlockContext,
+    CallContext,
+    run,
+};
+
 
 fn main() {
     // This is the result of compiling:
